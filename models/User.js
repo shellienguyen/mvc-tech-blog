@@ -1,10 +1,12 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require( 'sequelize' );
+const sequelize = require( '../config/connection' );
+// Encrypt user credentials
 const bcrypt = require( 'bcrypt' );
 
 class User extends Model {
-   checkPassword(loginPW) {
-      return bcrypt.compareSync(loginPW, this.password);
+   // set up method to run on instance data (per user) to check password
+   checkPassword( loginPw ) {
+      return bcrypt.compareSync( loginPw, this.password );
    };
 };
 
@@ -12,7 +14,7 @@ class User extends Model {
 User.init(
    {
       id: {
-         type:DataTypes.INTEGER,
+         type: DataTypes.INTEGER,
          allowNull: false,
          primaryKey: true,
          autoIncrement: true
@@ -20,36 +22,45 @@ User.init(
       username: {
          type: DataTypes.STRING,
          allowNull: false,
+         unique: true
+      },
+      email: {
+         type: DataTypes.STRING,
+         allowNull: false,
          unique: true,
          validate: {
-            len: [5]
-         }
+            isEmail: true
+         },
       },
       password: {
          type: DataTypes.STRING,
          allowNull: false,
          validate: {
-            len: [6]
+            len: [ 6 ]
          }
       }
    },
    {
       hooks: {
-         // Setup beforeCreate lifecycle "hook" functionality
-         async beforeCreate(newUserData) {
-            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+         // set up beforeCreate lifecycle "hook" functionality
+         async beforeCreate( newUserData ) {
+            newUserData.password = await bcrypt.hash( newUserData.password, 10 );
             return newUserData;
          },
-         // Setup beforeUpdate lifecyle "hook" functionality
-         async beforeUpdate(updateUserData) {
-            updateUserData.password = await bcrypt.hash(updateUserData.password, 10);
-            return updateUserData;
+         // set up beforeUpdate lifecycle "hook" functionality
+         async beforeUpdate( updatedUserData ) {
+            updatedUserData.password = await bcrypt.hash( updatedUserData.password, 10 );
+            return updatedUserData;
          }
       },
       sequelize,
+      // don't automatically create createdAt/updatedAt timestamp fields
       timestamps: false,
+      // don't pluralize name of database table
       freezeTableName: true,
+      // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
       underscored: true,
+      // make it so our model name stays lowercase in the database
       modelName: 'user'
    }
 );
