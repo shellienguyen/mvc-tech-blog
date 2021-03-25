@@ -7,16 +7,24 @@ const sequelize = require('../config/connection');
 
 const seedAll = async () => {
    await sequelize.sync({ force: true });
-   console.log('\n----- DATABASE SYNCED -----\n');
+   console.log('*********************************');
+   console.log('******** DATABASE SYNCED ********');
+   console.log('*********************************\n');
 
    await seedUsers();
-   console.log('\const ----- USER TABLE SEEDED -----*\n');
+   console.log('*****************************');
+   console.log('***** USER TABLE SEEDED *****');
+   console.log('*****************************\n');
 
    await seedPosts();
-   console.log('\const ----- POST TABLE SEEDED -----*\n');
+   console.log('*****************************');
+   console.log('***** POST TABLE SEEDED *****');
+   console.log('*****************************\n');
 
    await seedComments();
-   console.log('\const ----- COMMENT TABLE SEEDED -----*\n');
+   console.log('********************************');
+   console.log('***** COMMENT TABLE SEEDED *****');
+   console.log('********************************\n');
 
    process.exit(0);
 };
