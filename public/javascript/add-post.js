@@ -18,4 +18,5 @@ async function addPostFormHandler( event ) {
    };
 };
 
+
 document.querySelector( '#add-post-form' ).addEventListener( 'submit', addPostFormHandler );

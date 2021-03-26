@@ -1,6 +1,6 @@
 {{#if posts.length}}
 <section>
-   <h2>Your Posts</h2>
+   <h2>Your Posts:</h2>
    {{#each posts as |post|}}
    {{> dashboard-postinfo post}}
    {{/each}}
@@ -8,5 +8,3 @@
 {{/if}}
 
 <button type = "submit" class = "button"><a class = "link-button" href = "/dashboard/new">Add a New Post</a></button>
-
-<script src = "/javascript/add-post.js "></script>

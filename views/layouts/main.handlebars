@@ -14,17 +14,20 @@
          <div>
             <nav class="nav">
                <a class = "link" href = "/">Home</a>
+               <a class = "link" href = "/dashboard">Dashboard</a>
                {{#if loggedIn}}
-               <a class = "link" href = "/dashboard">{{post.username}}'s Dashboard</a>
                <a class = "link" href = "/" id = "logout">Logout</a>
                {{else}}
-               <a class = "link" href = "/dashboard">Dashboard</a>
                <a class = "link" href = "/login">Login</a>
                {{/if}}
             </nav>
          </div>
 
+         {{#if loggedIn}}
+         <h1 class = "app-title"><i class = "fab "></i>Your MVC Tech Blog Dashboard</h1>
+         {{else}}
          <h1 class = "app-title"><i class = "fab "></i>The MVC Tech Blog</h1>
+         {{/if}}
       </header>
 
       <main>
