@@ -80,7 +80,7 @@ footer {
    text-decoration: none;
    width: 100%;
    font-size: 1.3rem;
-   padding: 6px 5px;
+   padding: 12px 8px;
    margin: 5px 0;
    border-radius: var(--border-radius-color);
    display: block;
@@ -92,7 +92,23 @@ footer {
 }
 
 
-.button:hover {
+.button-ls {
+   text-decoration: none;
+   width: 50%;
+   font-size: 1.3rem;
+   padding: 8px 5px;
+   margin: 3px 0;
+   border-radius: var(--border-radius-color);
+   display: block;
+   border: none;
+   outline: none;
+   color: #ffffff;
+   transform: translate(-1px, -1px);
+   background-color: var(--lighter-color);
+}
+
+
+.button:hover, .button-ls:hover {
    color: var(--primary-color);
    background-color: var(--tertiary-color);
    box-shadow: 2px 2px var(--darker-color);
@@ -236,7 +252,7 @@ footer {
 
 .form-label {
    font-size: 1.1rem;
-   margin: 0 0 0 5px;
+   margin: 0 0 0 2px;
 }
 
 
@@ -244,11 +260,20 @@ footer {
    width: 100%;
    margin: 5px 0;
    font-size: 1.2rem;
-   padding: 3%;
+   padding: 2%;
    border-radius: var(--border-radius-color);
    border: 2px solid var(--lighter-color);
 }
 
+
+.form-input-ls {
+   width: 50%;
+   margin: 3px 0;
+   font-size: 1.2rem;
+   padding: 1%;
+   border-radius: var(--border-radius-color);
+   border: 2px solid var(--lighter-color);
+}
 
 .min-100-vw {
    min-width: 100vw;
