@@ -12,6 +12,7 @@ async function loginFormHandler( event ) {
       });
 
       if ( response.ok ) {
+         // After successfully logged in, redirect to the dashboard
          document.location.replace( '/dashboard' );
       }
       else {

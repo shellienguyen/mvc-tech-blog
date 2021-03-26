@@ -11,6 +11,7 @@ async function addPostFormHandler( event ) {
    });
 
    if ( response.ok ) {
+      // After successfully added a post, re-direct the user back to the dashboard
       document.location.replace( '/dashboard' );
    }
    else {

@@ -10,12 +10,12 @@ async function editFormHandler( event ) {
 
    const response = await fetch( `/api/posts/${id}`, {
       method: 'PUT',
-      body: JSON.stringify({ post_id: id, postTitle, postContent
-      }),
+      body: JSON.stringify({ post_id: id, postTitle, postContent }),
       headers: { 'Content-Type': 'application/json' }
    });
 
    if ( response.ok ) {
+      // After successfully updating a post, redirect to the dashboard
       document.location.replace('/dashboard/');
    }
    else {

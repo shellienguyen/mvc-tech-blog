@@ -12,6 +12,7 @@ async function deleteFormHandler( event ) {
    });
 
    if ( response.ok ) {
+      // AFter successfully deleted a post, redirect back to the dashboard
       document.location.replace( '/dashboard/' );
    }
    else {

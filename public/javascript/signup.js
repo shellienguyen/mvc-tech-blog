@@ -11,7 +11,7 @@ async function signupFormHandler( event ) {
          headers: { 'Content-Type': 'application/json' }
       });
       if ( response.ok ) {
-         console.log( 'success' );
+         // After successfully creating a new account, redirect to the 
          document.location.replace( '/dashboard' );
       }
       else {
